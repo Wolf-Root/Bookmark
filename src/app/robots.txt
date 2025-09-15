@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bookmark.vercel.app/sitemap.xml
+Sitemap: https://wolf-bookmark.vercel.app/sitemap.xml
