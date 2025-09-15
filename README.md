@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Simple Bookmark Landing Page
 
-## Getting Started
+A clean and responsive landing page for a bookmark manager. This project is **frontEnd** only (no functionality), built with **Next.js**, **Tailwind CSS**, and **MUI (Material-UI)**, enhanced with **GSAP Animations** for smooth interactions.
 
-First, run the development server:
+### Light Mode
+
+| Desktop                                                  | Mobile                                                     |
+| -------------------------------------------------------- | ---------------------------------------------------------- |
+| ![Light Mode Desktop](/screenshot/Macbook-Air-light.png) | ![Dark Mode Desktop](/screenshot/iPhone-14-Plus-light.png) |
+
+### Dark Mode
+
+| Desktop                                                | Mobile                                                   |
+| ------------------------------------------------------ | -------------------------------------------------------- |
+| ![Light Mode Mobile](/screenshot/Macbook-Air-dark.png) | ![Dark Mode Mobile](/screenshot/iPhone-14-Plus-dark.png) |
+
+[![License: MIT](https://img.shields.io/badge/MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
+![Next.js](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=whiteZ)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![MUI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
+![GSAP](https://img.shields.io/badge/GSAP-93CF2B?style=for-the-badge&logo=greensock&logoColor=white)
+![next-themes](https://img.shields.io/badge/next--themes-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+
+[Live Demo](https://Bookmark.vercel.app/)
+
+---
+
+## Table of Contents
+
+- [About](#about)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## About
+
+This is a **Simple Bookmark Landing Page** built for practicing frontend development with modern tools.
+It features a **responsive design** using **Next.js**, **Tailwind CSS**, and **MUI (Material-UI)** components.
+The page includes **smooth GSAP animations** and supports **Dark and Light themes**, allowing users to switch between modes seamlessly.
+
+The project is **frontEnd only**, so it does not include any backend functionality.
+
+---
+
+## Features
+
+- **Responsive Design:** Works perfectly on desktop, tablet, and mobile screens.
+- **Dark/Light Theme:** Switch between dark and light modes seamlessly.
+- **GSAP Animations:** Smooth animations for interactive and engaging UI.
+- **MUI Components:** Built with Material-UI for consistent and modern design.
+- **Tailwind CSS Styling:** Utility-first styling for fast and flexible layout.
+- **FrontEnd Only:** Focused on layout and user interface, no backend functionality.
+
+---
+
+## Tech Stack
+
+- **Next.js** – React framework for server-side rendering and routing
+- **React** – JavaScript library for building user interfaces
+- **Tailwind CSS** – Utility-first CSS framework for rapid styling
+- **MUI (Material-UI)** – Pre-built React components for consistent design
+- **GSAP** – JavaScript library for smooth animations
+- **next-themes** – Theme management for switching between Dark and Light modes
+- **JavaScript / TypeScript** – Core programming language used
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Wolf-Root/Bookmark.git
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to view the project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Learn More
+1. Fork the repository
+2. Create a feature branch:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+git checkout -b feature/AmazingFeature
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Commit your changes:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+git commit -m "Add some AmazingFeature"
+```
 
-## Deploy on Vercel
+4. Push to your branch:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+git push origin feature/AmazingFeature
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Open a Pull Request
+
+---
+
+## License
+
+This project is distributed under the MIT License. See LICENSE for more information.
