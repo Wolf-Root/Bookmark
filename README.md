@@ -6,13 +6,13 @@ A clean and responsive landing page for a bookmark manager. This project is **fr
 
 | Desktop                                                  | Mobile                                                     |
 | -------------------------------------------------------- | ---------------------------------------------------------- |
-| ![Light Mode Desktop](/screenshot/Macbook-Air-light.png) | ![Dark Mode Desktop](/screenshot/iPhone-14-Plus-light.png) |
+| ![Light Mode Desktop](public/screenshot/Macbook-Air-light.png) | ![Dark Mode Desktop](public/screenshot/iPhone-14-Plus-light.png) |
 
 ### Dark Mode
 
 | Desktop                                                | Mobile                                                   |
 | ------------------------------------------------------ | -------------------------------------------------------- |
-| ![Light Mode Mobile](/screenshot/Macbook-Air-dark.png) | ![Dark Mode Mobile](/screenshot/iPhone-14-Plus-dark.png) |
+| ![Light Mode Mobile](public/screenshot/Macbook-Air-dark.png) | ![Dark Mode Mobile](public/screenshot/iPhone-14-Plus-dark.png) |
 
 [![License: MIT](https://img.shields.io/badge/MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
 ![Next.js](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=whiteZ)
