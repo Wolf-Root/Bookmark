@@ -10,6 +10,11 @@ html {
   display: none;
 }
 
+.hidden-before-anim {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .downloads-grid>div:nth-child(3n + 1) {
   @apply mb-0 lg:mb-16;
 }

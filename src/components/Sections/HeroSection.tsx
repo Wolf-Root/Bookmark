@@ -27,7 +27,7 @@ export default function HeroSection() {
   return (
     <Box
       component="section"
-      className="min-h-[calc(100vh-64px)] relative flex items-center overflow-hidden"
+      className="hidden-before-anim min-h-[calc(100vh-64px)] relative flex items-center overflow-hidden"
       id="Home"
     >
       <Container

@@ -1,5 +1,10 @@
 {
   "name": "bookmark-landing-page",
+  "description": "A clean and responsive landing page for a bookmark manager.",
+  "author": {
+    "name": "Wolf Root",
+    "url": "https://github.com/Wolf-Root"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {

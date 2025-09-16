@@ -101,7 +101,13 @@ export default function Header(props: Props) {
   useGSAP(() => {
     if (!headerRef.current) return;
 
-    gsap.from(headerRef.current, {
+    const tl = gsap.timeline();
+    tl.to(".hidden-before-anim", {
+      opacity: 1,
+      visibility: "visible",
+      duration: 0,
+      ease: "power3.out",
+    }).from(headerRef.current, {
       y: -120,
       opacity: 0,
       duration: 1,
@@ -110,7 +116,7 @@ export default function Header(props: Props) {
   }, []);
 
   return (
-    <Box>
+    <Box className="hidden-before-anim">
       <HideOnScroll {...props}>
         <AppBar
           sx={{ bgcolor: "background.default", color: "inherit" }}

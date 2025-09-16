@@ -11,6 +11,13 @@ type HeroAnimationArgs = {
 const heroAnimation = ({ title, subtitle, button, img, rectangle }: HeroAnimationArgs) => {
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
+  tl.to(".hidden-before-anim", {
+    opacity: 1,
+    visibility: "visible",
+    duration: 0,
+    ease: "power3.out",
+  });
+
   // Title Animation (split into chars)
   if (title) {
     const split = new SplitText(title, { type: "words, chars" });
