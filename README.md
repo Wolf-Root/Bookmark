@@ -4,24 +4,14 @@ A clean and responsive landing page for a bookmark manager. This project is **fr
 
 ### Light Mode
 
-<<<<<<< HEAD
-| Desktop                                                  | Mobile                                                     |
-| -------------------------------------------------------- | ---------------------------------------------------------- |
-=======
 | Desktop                                                        | Mobile                                                           |
 | -------------------------------------------------------------- | ---------------------------------------------------------------- |
->>>>>>> eefb4ed (Add Live Demo Link)
 | ![Light Mode Desktop](public/screenshot/Macbook-Air-light.png) | ![Dark Mode Desktop](public/screenshot/iPhone-14-Plus-light.png) |
 
 ### Dark Mode
 
-<<<<<<< HEAD
-| Desktop                                                | Mobile                                                   |
-| ------------------------------------------------------ | -------------------------------------------------------- |
-=======
 | Desktop                                                      | Mobile                                                         |
 | ------------------------------------------------------------ | -------------------------------------------------------------- |
->>>>>>> eefb4ed (Add Live Demo Link)
 | ![Light Mode Mobile](public/screenshot/Macbook-Air-dark.png) | ![Dark Mode Mobile](public/screenshot/iPhone-14-Plus-dark.png) |
 
 [![License: MIT](https://img.shields.io/badge/MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
