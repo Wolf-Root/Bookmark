@@ -44,6 +44,7 @@ export default function DownloadSection() {
             Please do let us know if you've got a Favourite you'd like us to prioritize"
         />
 
+        {/* Browers Cards */}
         <Grid container spacing={{ xs: 4, sm: 8 }} className="downloads-grid">
           {Cards.map(({ img, name }, index) => (
             <Grid
@@ -53,9 +54,9 @@ export default function DownloadSection() {
             >
               <Card id={name} className="min-w-full pt-5 flex flex-col items-center">
                 <CardContent className="flex flex-col items-center gap-5 w-full border-b-1 border-divider">
-                  <Image src={img} alt="chrome" width={102} height={100} />
+                  <Image src={img} alt={name} width={102} height={100} loading="lazy" />
 
-                  <Typography variant="h5" component="div">
+                  <Typography variant="h5" component="h3">
                     Add To {name}
                   </Typography>
 
@@ -73,6 +74,7 @@ export default function DownloadSection() {
             </Grid>
           ))}
         </Grid>
+        
       </Container>
     </Box>
   );

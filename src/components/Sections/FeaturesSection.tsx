@@ -75,7 +75,7 @@ export default function FeaturesSection() {
                   width={600}
                   height={400}
                   className="object-cover"
-                  priority
+                  loading="lazy"
                 />
               </Box>
 

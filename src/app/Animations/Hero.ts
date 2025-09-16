@@ -15,78 +15,36 @@ const heroAnimation = ({ title, subtitle, button, img, rectangle }: HeroAnimatio
     opacity: 1,
     visibility: "visible",
     duration: 0,
-    ease: "power3.out",
   });
 
   // Title Animation (split into chars)
   if (title) {
     const split = new SplitText(title, { type: "words, chars" });
-
     gsap.set(split.chars, {
       className: "bg-gradient-to-r from-violet-700 to-blue-700 bg-clip-text text-transparent",
     });
-
-    tl.from(split.chars, {
-      opacity: 0,
-      y: 40,
-      duration: 0.8,
-      stagger: 0.04,
-    });
-  }
-
-  // Subtitle Animation
-  if (subtitle) {
-    tl.from(
-      subtitle,
-      {
-        opacity: 0,
-        y: 25,
-        duration: 0.8,
-      },
-      "-=0.3" // overlap with title
-    );
-  }
-
-  // Button children animation
-  if (button?.children?.length) {
-    tl.from(
-      Array.from(button.children),
-      {
-        opacity: 0,
-        x: -200,
-        duration: 1.2,
-        stagger: 0.2,
-      },
-      "-=0.6" // start earlier for smoother flow
-    );
+    tl.from(split.chars, { opacity: 0, y: 40, duration: 0.8, stagger: 0.04 });
   }
 
   // Rectangle Animation
   if (rectangle) {
-    tl.from(
-      rectangle,
-      {
-        scaleX: 0,
-        transformOrigin: "right center",
-        duration: 1.2,
-      },
-      "<" // sync with previous
-    );
+    tl.from(rectangle, { scaleX: 0, transformOrigin: "right center", duration: 1.2 }, "-=0.3");
+  }
+
+  // Subtitle Animation
+  if (subtitle) {
+    tl.from(subtitle, { opacity: 0, y: 25, duration: 0.8 }, "<");
   }
 
   // Image Animation
   if (img) {
-    tl.from(
-      img,
-      {
-        opacity: 0,
-        x: 200,
-        duration: 1.2,
-      },
-      "<" // sync with rectangle
-    );
+    tl.from(img, { opacity: 0, x: 200, duration: 1.2 }, "-=0.4");
   }
 
+  // Button children animation
+  if (button?.children?.length) {
+    tl.from(Array.from(button.children), { opacity: 0, x: -200, duration: 1.2, stagger: 0.2 }, "<");
+  }
   return tl;
 };
 
