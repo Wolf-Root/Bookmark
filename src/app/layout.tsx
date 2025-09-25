@@ -8,6 +8,8 @@ import AppThemeProvider from "@/context/AppThemeContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import CookieConsentComponent from "@/components/CookieConsentComponent";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -51,10 +53,30 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           <AppThemeProvider>
             <Header />
             {children}
+            <CookieConsentComponent />
             <ScrollToTop />
             <Footer />
           </AppThemeProvider>
         </AppRouterCacheProvider>
+
+        {/* Google Analytics */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('consent', 'default', {
+                    ad_storage: 'denied',
+                    analytics_storage: 'denied'
+                  });
+                `,
+              }}
+            />
+            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+          </>
+        )}
       </body>
     </html>
   );
