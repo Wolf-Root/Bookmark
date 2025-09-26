@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 
 import { useGSAP } from "@gsap/react";
-import featuresAnimation from "@/app/Animations/Features";
+import featuresAnimation from "@/Animations/Features";
 import SectionHeading from "../SectionHeading";
 
 const Features: { img: string; title: string; subtitle: string }[] = [

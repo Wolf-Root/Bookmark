@@ -12,7 +12,6 @@ const downloadAnimation = () => {
     scrollTrigger: {
       trigger: ".downloads-grid",
       start: "top center",
-      toggleActions: "play reverse play reverse",
     },
     opacity: 0,
     x: isMobile ? 50 : 0,

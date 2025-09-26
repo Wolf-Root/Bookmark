@@ -12,7 +12,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import { useScrollSpy } from "@/app/hook/useScrollSpy";
+import { useScrollSpy } from "@/hook/useScrollSpy";
 import { useColorScheme } from "@mui/material/styles";
 
 interface Props {

@@ -11,7 +11,6 @@ const featuresAnimation = () => {
       scrollTrigger: {
         trigger: item,
         start: "top center",
-        toggleActions: "play reverse play reverse",
       },
     });
 

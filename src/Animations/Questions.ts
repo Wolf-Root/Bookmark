@@ -12,7 +12,6 @@ const questionsAnimation = () => {
     scrollTrigger: {
       trigger: ".questions-item",
       start: "top center",
-      toggleActions: "play reverse play reverse",
     },
     opacity: 0,
     x: -150,
@@ -25,7 +24,6 @@ const questionsAnimation = () => {
     scrollTrigger: {
       trigger: ".questions-item",
       start: "top center",
-      toggleActions: "play reverse play reverse",
     },
     opacity: 0,
     y: 100,

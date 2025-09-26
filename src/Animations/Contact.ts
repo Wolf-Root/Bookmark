@@ -11,7 +11,6 @@ const contactAnimation = () => {
     scrollTrigger: {
       trigger: ".contact-item",
       start: "top 80%",
-      toggleActions: "play reverse play reverse",
     },
     opacity: 0,
     x: -150,
@@ -24,7 +23,6 @@ const contactAnimation = () => {
     scrollTrigger: {
       trigger: ".contact-item",
       start: "top 80%",
-      toggleActions: "play reverse play reverse",
     },
     opacity: 0,
     x: 150,

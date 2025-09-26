@@ -10,7 +10,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Button from "@mui/material/Button";
 import SectionHeading from "../SectionHeading";
-import questionsAnimation from "@/app/Animations/Questions";
+import questionsAnimation from "@/Animations/Questions";
 import { useGSAP } from "@gsap/react";
 
 const Questions: { title: string; disc: string }[] = [

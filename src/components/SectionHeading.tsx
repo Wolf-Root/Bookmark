@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, SplitText, useGSAP } from "@/app/lib/gsap";
+import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 
@@ -30,7 +30,6 @@ export default function SectionHeading({ title, subtitle, direction, color }: Se
         scrollTrigger: {
           trigger: headingRef.current,
           start: "top center",
-          toggleActions: "play none none reverse",
         },
       });
 
@@ -40,12 +39,16 @@ export default function SectionHeading({ title, subtitle, direction, color }: Se
         duration: 0.8,
         ease: "power3.out",
         stagger: 0.04,
-      }).from(p, {
-        opacity: 0,
-        y: 25,
-        duration: 0.8,
-        ease: "power3.out",
-      }, "-=0.9");
+      }).from(
+        p,
+        {
+          opacity: 0,
+          y: 25,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.9"
+      );
     },
     { scope: headingRef }
   );

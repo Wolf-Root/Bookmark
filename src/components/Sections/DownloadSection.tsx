@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 
 import { useGSAP } from "@gsap/react";
-import downloadAnimation from "@/app/Animations/Download";
+import downloadAnimation from "@/Animations/Download";
 import SectionHeading from "../SectionHeading";
 
 const Cards: { img: string; name: string }[] = [
@@ -74,7 +74,6 @@ export default function DownloadSection() {
             </Grid>
           ))}
         </Grid>
-        
       </Container>
     </Box>
   );

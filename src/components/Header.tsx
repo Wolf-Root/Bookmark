@@ -34,8 +34,8 @@ import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
 import MobileDrawer from "./MobileDrawer";
 import Button from "@mui/material/Button";
 import { useGSAP } from "@gsap/react";
-import { gsap } from "@/app/lib/gsap";
-import { useScrollSpy } from "@/app/hook/useScrollSpy";
+import { gsap } from "@/lib/gsap";
+import { useScrollSpy } from "@/hook/useScrollSpy";
 
 interface Props {
   children?: ReactElement;

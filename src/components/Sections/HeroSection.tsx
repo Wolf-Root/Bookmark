@@ -3,9 +3,9 @@
 import { Box, Container, Typography, Button, Stack } from "@mui/material";
 import Image from "next/image";
 import { useRef } from "react";
-import { useGSAP } from "@/app/lib/gsap";
+import { useGSAP } from "@/lib/gsap";
 
-import heroAnimation from "@/app/Animations/Hero";
+import heroAnimation from "@/Animations/Hero";
 
 export default function HeroSection() {
   const titleRef = useRef<HTMLHeadingElement | null>(null);

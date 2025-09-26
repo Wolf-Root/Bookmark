@@ -24,7 +24,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Stack from "@mui/material/Stack";
 import { useColorScheme } from "@mui/material/styles";
 import { useGSAP } from "@gsap/react";
-import footerAnimation from "@/app/Animations/Footer";
+import footerAnimation from "@/Animations/Footer";
 
 const NavLink: { text: string; path: string }[] = [
   {

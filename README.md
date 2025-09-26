@@ -4,15 +4,11 @@ A clean and responsive landing page for a bookmark manager. This project is **fr
 
 ### Light Mode
 
-| Desktop                                                        | Mobile                                                           |
-| -------------------------------------------------------------- | ---------------------------------------------------------------- |
-| ![Light Mode Desktop](public/screenshot/Macbook-Air-light.png) | ![Dark Mode Desktop](public/screenshot/iPhone-14-Plus-light.png) |
+![Light Mode Desktop](public/screenshot/Light-Mode.png)
 
 ### Dark Mode
 
-| Desktop                                                      | Mobile                                                         |
-| ------------------------------------------------------------ | -------------------------------------------------------------- |
-| ![Light Mode Mobile](public/screenshot/Macbook-Air-dark.png) | ![Dark Mode Mobile](public/screenshot/iPhone-14-Plus-dark.png) |
+![Light Mode Desktop](public/screenshot/Dark-Mode.png)
 
 [![License: MIT](https://img.shields.io/badge/MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
 ![Next.js](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=whiteZ)
@@ -31,12 +27,16 @@ A clean and responsive landing page for a bookmark manager. This project is **fr
 
 ## Table of Contents
 
-- [About](#about)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Contributing](#contributing)
-- [License](#license)
+- [Simple Bookmark Landing Page](#simple-bookmark-landing-page)
+    - [Light Mode](#light-mode)
+    - [Dark Mode](#dark-mode)
+  - [Table of Contents](#table-of-contents)
+  - [About](#about)
+  - [Features](#features)
+  - [Tech Stack](#tech-stack)
+  - [Installation](#installation)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ---
 

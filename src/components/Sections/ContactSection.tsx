@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SectionHeading from "../SectionHeading";
 import { useGSAP } from "@gsap/react";
-import contactAnimation from "@/app/Animations/Contact";
+import contactAnimation from "@/Animations/Contact";
 
 export default function ContactSection() {
   useGSAP(() => {
