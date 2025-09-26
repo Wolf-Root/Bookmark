@@ -17,9 +17,10 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Bookmark",
-  description: "A Simple Bookmark Manager",
-  authors: { name: "Wolf Rooot", url: "https://github.com/Wolf-Root" },
+  title: "Bookmark | Simple and Efficient Bookmark Manager",
+  description:
+    "Bookmark is a simple and efficient bookmark manager to organize, save, and access your favorite links easily.",
+  authors: { name: "Wolf Root", url: "https://github.com/Wolf-Root" },
 
   icons: {
     icon: [
@@ -42,6 +43,32 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/favicon/site.webmanifest",
+
+  // Open Graph (Facebook, LinkedIn)
+  openGraph: {
+    title: "Bookmark | Simple Bookmark Manager",
+    description: "Organize, save, and access your favorite links easily with Bookmark.",
+    url: "https://wolf-bookmark.vercel.app/",
+    siteName: "Bookmark",
+    images: [
+      {
+        url: "https://wolf-bookmark.vercel.app/Facebook-OG.png",
+        width: 1200,
+        height: 630,
+        alt: "Bookmark Manager Preview",
+      },
+    ],
+    type: "website",
+  },
+
+  // Twitter Cards
+  twitter: {
+    card: "summary_large_image",
+    title: "Bookmark | Simple Bookmark Manager",
+    description: "Organize, save, and access your favorite links easily with Bookmark.",
+    images: ["https://wolf-bookmark.vercel.app/twitter-OG.png"],
+    creator: "@wolf_R00T",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
