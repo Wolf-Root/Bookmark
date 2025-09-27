@@ -1,5 +1,5 @@
 // React
-import { Fragment, ReactNode } from "react";
+import { ElementType, Fragment } from "react";
 
 // MUI Core Components
 import Box from "@mui/material/Box";
@@ -17,24 +17,24 @@ import { useColorScheme } from "@mui/material/styles";
 
 interface Props {
   drawerWidth: number;
-  navItems: { name: string; icon: ReactNode }[];
+  NavLinks: { name: string; icon?: ElementType }[];
   handleDrawerToggle: () => void;
   mobileOpen: boolean;
 }
 
 export default function MobileDrawer({
   drawerWidth,
-  navItems,
+  NavLinks,
   handleDrawerToggle,
   mobileOpen,
 }: Props) {
   const { mode } = useColorScheme();
-  const activeId = useScrollSpy(navItems.map((item) => item.name));
+  const activeId = useScrollSpy(NavLinks.map((item) => item.name));
 
   const drawer = (
     <Box onClick={handleDrawerToggle} className="text-center">
       <List disablePadding>
-        {navItems.map(({ name, icon }, index) => (
+        {NavLinks.map(({ name, icon: Icon }, index) => (
           <Fragment key={index}>
             <ListItem disablePadding sx={{ borderBottom: "1px solid", borderColor: "divider" }}>
               <ListItemButton
@@ -42,7 +42,7 @@ export default function MobileDrawer({
                 selected={name === activeId}
                 aria-current={name === activeId ? "page" : undefined}
               >
-                <ListItemIcon sx={{ minWidth: 40 }}>{icon}</ListItemIcon>
+                <ListItemIcon sx={{ minWidth: 40 }}>{Icon && <Icon />}</ListItemIcon>
                 <ListItemText primary={name} />
               </ListItemButton>
             </ListItem>

@@ -5,13 +5,29 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import SectionHeading from "../SectionHeading";
-import { useGSAP } from "@gsap/react";
-import contactAnimation from "@/Animations/Contact";
+import Typography from "@mui/material/Typography";
+import { gsap, useGSAP, SplitText } from "@/lib/gsap";
 
 export default function ContactSection() {
   useGSAP(() => {
-    contactAnimation();
+    const titlesplit = new SplitText("#Contact h2", { type: "chars" });
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#Contact",
+          start: "top 80%",
+        },
+        defaults: {
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+      })
+      .from("#Contact .subtitle", { yPercent: -140 })
+      .from(titlesplit.chars, { yPercent: 40, stagger: 0.04 }, "-=0.4")
+      .from(".input", { xPercent: -150 }, "-=0.4")
+      .from(".contact-button", { xPercent: 150 }, "<");
   }, []);
 
   return (
@@ -23,12 +39,19 @@ export default function ContactSection() {
     >
       <Container maxWidth="xl" className="flex flex-col gap-10">
         {/* Heading */}
-        <SectionHeading
-          title="Stay Up-To-Date With What We're Doing"
-          subtitle="35,000+ already joined"
-          direction="column-reverse"
+        <Stack
+          spacing={1.5}
           color="primary.contrastText"
-        />
+          className="text-center mb-12 max-w-3xl mx-auto"
+        >
+          <Typography variant="subtitle1" className="subtitle" component="p" fontWeight={500}>
+            35,000+ already joined
+          </Typography>
+
+          <Typography variant="h2" lineHeight={1.2}>
+            Stay Up-To-Date With What We&apos;re Doing
+          </Typography>
+        </Stack>
 
         {/* Contact Us */}
         <Stack

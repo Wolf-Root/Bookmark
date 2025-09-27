@@ -8,41 +8,72 @@ import CardContent from "@mui/material/CardContent";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+
 import Image from "next/image";
 
-import { useGSAP } from "@gsap/react";
-import downloadAnimation from "@/Animations/Download";
-import SectionHeading from "../SectionHeading";
-
-const Cards: { img: string; name: string }[] = [
-  {
-    img: "/imgs/logo-chrome.svg",
-    name: "Chrome",
-  },
-  {
-    img: "/imgs/logo-firefox.svg",
-    name: "Firefox",
-  },
-  {
-    img: "/imgs/logo-opera.svg",
-    name: "Opera",
-  },
-];
+import { gsap, useGSAP, SplitText } from "@/lib/gsap";
+import { Cards } from "@/constants";
 
 export default function DownloadSection() {
   useGSAP(() => {
-    downloadAnimation();
+    // Heading
+    const titlesplit = new SplitText("#Download h2", { type: "chars" });
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#Download",
+          start: "top center",
+        },
+        defaults: {
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+      })
+      .from(titlesplit.chars, { yPercent: 40, stagger: 0.04 })
+      .from("#Download .subtitle", { yPercent: 25 }, "-=0.5");
+
+    // Cards
+    const isMobile = window.innerWidth < 768;
+
+    const cards = gsap.utils.toArray<HTMLElement>(".download-card");
+
+    gsap.from(cards, {
+      scrollTrigger: {
+        trigger: ".downloads-grid",
+        start: "top center",
+      },
+      opacity: 0,
+      xPercent: isMobile ? 50 : 0,
+      yPercent: isMobile ? 0 : 50,
+      duration: 0.8,
+      ease: "power3.out",
+      stagger: 0.2,
+    });
   }, []);
 
   return (
     <Box component="section" className="py-10 md:py-20 flex flex-col" id="Download">
       <Container maxWidth="xl" className="flex flex-col gap-10">
         {/* Heading */}
-        <SectionHeading
-          title="Download the Extension"
-          subtitle="we've got more browers in the pipeline.
-            Please do let us know if you've got a Favourite you'd like us to prioritize"
-        />
+        <Stack spacing={1.5} className="text-center mb-12 max-w-3xl mx-auto">
+          <Typography variant="h2" lineHeight={1.2}>
+            Download the Extension
+          </Typography>
+
+          <Typography
+            variant="subtitle1"
+            component="p"
+            className="subtitle"
+            color="textSecondary"
+            fontWeight={500}
+          >
+            we&apos; ve got more browers in the pipeline. Please do let us know if you&apos;ve got a
+            Favourite you&apos;d like us to prioritize
+          </Typography>
+        </Stack>
 
         {/* Browers Cards */}
         <Grid container spacing={{ xs: 4, sm: 8 }} className="downloads-grid">

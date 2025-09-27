@@ -1,8 +1,5 @@
 "use client";
 
-// React
-import { ReactNode, useRef } from "react";
-
 // Next.js
 import Link from "next/link";
 
@@ -16,68 +13,35 @@ import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 
-// Material UI Icon
-import GitHubIcon from "@mui/icons-material/GitHub";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import XIcon from "@mui/icons-material/X";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Stack from "@mui/material/Stack";
 import { useColorScheme } from "@mui/material/styles";
-import { useGSAP } from "@gsap/react";
-import footerAnimation from "@/Animations/Footer";
-
-const NavLink: { text: string; path: string }[] = [
-  {
-    text: "Home",
-    path: "#Home",
-  },
-  {
-    text: "Features",
-    path: "#Features",
-  },
-  {
-    text: "Download",
-    path: "#Download",
-  },
-  {
-    text: "Contact",
-    path: "#Contact",
-  },
-];
-const SocialMedia: { name: string; href: string; icon: ReactNode }[] = [
-  {
-    name: "Github",
-    href: "https://github.com/Wolf-Root",
-    icon: <GitHubIcon />,
-  },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/wolf_r00t",
-    icon: <InstagramIcon />,
-  },
-  {
-    name: "X",
-    href: "https://x.com/wolf_R00T",
-    icon: <XIcon />,
-  },
-  {
-    name: "Linkedin",
-    href: "https://linkedin.com/in/youssef-aboulkaram-7b25ab304",
-    icon: <LinkedInIcon />,
-  },
-];
+import { gsap, useGSAP } from "@/lib/gsap";
+import { NavLinks, SocialMedia } from "@/constants";
 
 export default function Footer() {
   const { mode } = useColorScheme();
-  const footerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    footerAnimation({ footerRef: footerRef });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "footer",
+          start: "top 90%",
+        },
+        defaults: {
+          opacity: 0,
+          ease: "power3.out",
+          duration: 0.8,
+        },
+      })
+      .from(".footer-logo", { xPercent: -50 })
+      .from(".footer-nav a", { yPercent: 30, stagger: 0.15 }, "-=0.5")
+      .from(".footer-social a", { xPercent: 50, stagger: 0.1, ease: "back.out(1.7)" }, "-=0.4")
+      .from(".footer-copy", { yPercent: 20 }, "-=0.3");
   });
 
   return (
     <Box
-      ref={footerRef}
       component="footer"
       bgcolor="secondary.main"
       borderColor="secondary.contrastText"
@@ -108,11 +72,11 @@ export default function Footer() {
           {/* Footer Navigation */}
           <Box component="nav" aria-label="Footer Navigation" className="footer-nav">
             <List className="flex gap-3 md:gap-5">
-              {NavLink.map(({ text, path }) => (
-                <ListItem key={text} disablePadding sx={{ width: "auto" }}>
+              {NavLinks.map(({ name }) => (
+                <ListItem key={name} disablePadding sx={{ width: "auto" }}>
                   <MUILink
                     component={Link}
-                    href={path}
+                    href={name}
                     underline="none"
                     color="secondary.contrastText"
                     sx={{
@@ -121,7 +85,7 @@ export default function Footer() {
                       "&:hover": { color: "primary.main" },
                     }}
                   >
-                    {text}
+                    {name}
                   </MUILink>
                 </ListItem>
               ))}
@@ -130,7 +94,7 @@ export default function Footer() {
 
           {/* Social Media */}
           <Stack direction="row" spacing={1} className="footer-social ">
-            {SocialMedia.map(({ href, name, icon }, index) => (
+            {SocialMedia.map(({ href, name, icon: Icon }, index) => (
               <Tooltip key={index} title={name} enterDelay={500}>
                 <IconButton
                   href={href}
@@ -143,7 +107,7 @@ export default function Footer() {
                     "&:hover": { color: "primary.main" },
                   }}
                 >
-                  {icon}
+                  {Icon && <Icon />}
                 </IconButton>
               </Tooltip>
             ))}

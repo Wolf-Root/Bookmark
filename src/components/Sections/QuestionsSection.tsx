@@ -9,30 +9,9 @@ import { SyntheticEvent, useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Button from "@mui/material/Button";
-import SectionHeading from "../SectionHeading";
-import questionsAnimation from "@/Animations/Questions";
-import { useGSAP } from "@gsap/react";
-
-const Questions: { title: string; disc: string }[] = [
-  {
-    title: "What is a Bookmark?",
-    disc: "A bookmark is a saved link to a webpage that allows you to quickly access it later without searching again.",
-  },
-  {
-    title: "How Can I request a new browser?",
-    disc: "You can request a new browser by downloading and installing it from its official website.",
-  },
-
-  {
-    title: "Is there a mobile app?",
-    disc: "Yes! Many browsers have mobile apps available for iOS and Android.",
-  },
-
-  {
-    title: "What about other Cheomium browers?",
-    disc: "Chromium-based browsers, like Brave, Edge, Opera, and Vivaldi, offer unique features while using the same engine as Chrome for fast and secure browsing.",
-  },
-];
+import { gsap, useGSAP, SplitText } from "@/lib/gsap";
+import { Questions } from "@/constants";
+import Stack from "@mui/material/Stack";
 
 export default function QuestionsSection() {
   const [expanded, setExpanded] = useState<string | false>(false);
@@ -42,7 +21,43 @@ export default function QuestionsSection() {
   };
 
   useGSAP(() => {
-    questionsAnimation();
+    // Heading
+    const titlesplit = new SplitText("#FAQs h2", { type: "chars" });
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#FAQs",
+          start: "top center",
+        },
+        defaults: {
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+      })
+      .from(titlesplit.chars, { yPercent: 40, stagger: 0.04 })
+      .from("#FAQs .subtitle", { yPercent: 25 }, "-=0.5");
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".questions-item",
+          start: "top center",
+        },
+        defaults: { opacity: 0 },
+      })
+      .from(".question", {
+        xPercent: -150,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.2,
+      })
+      .from(".questions-button", {
+        yPercent: 100,
+        duration: 1,
+        ease: "back.out(1.7)",
+      });
   }, []);
 
   return (
@@ -54,11 +69,22 @@ export default function QuestionsSection() {
     >
       <Container maxWidth="xl" className="flex flex-col gap-10">
         {/* Heading */}
-        <SectionHeading
-          title="Frequently Asked Questions"
-          subtitle="Here are some of our FAQs. if you have any other Questions you'd like answwered
-            Please feel free to email us."
-        />
+        <Stack spacing={1.5} className="text-center mb-12 max-w-3xl mx-auto">
+          <Typography variant="h2" lineHeight={1.2}>
+            Frequently Asked Questions
+          </Typography>
+
+          <Typography
+            variant="subtitle1"
+            className="subtitle"
+            component="p"
+            color="textSecondary"
+            fontWeight={500}
+          >
+            Here are some of our FAQs. if you have any other Questions you&apos;d like answwered
+            Please feel free to email us.
+          </Typography>
+        </Stack>
 
         {/* Questions */}
         <Box className="w-full max-w-xl flex flex-col mx-auto questions-item">

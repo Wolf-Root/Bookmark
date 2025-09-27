@@ -7,34 +7,59 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 
-import { useGSAP } from "@gsap/react";
-import featuresAnimation from "@/Animations/Features";
-import SectionHeading from "../SectionHeading";
-
-const Features: { img: string; title: string; subtitle: string }[] = [
-  {
-    img: "/imgs/feature1.svg",
-    title: "Bookmarks in one click",
-    subtitle:
-      "Organize your bookmarks however you like. Our Simple drag-and-drop interface Gives you complete control over how you manage your favourite sites",
-  },
-  {
-    img: "/imgs/feature2.svg",
-    title: "Intelligent search",
-    subtitle:
-      "Our Powerful search feature will help you find saved sites in on time at all. No need to trawl through all your bookmarks.",
-  },
-  {
-    img: "/imgs/feature3.svg",
-    title: "Share your Bookmarks",
-    subtitle:
-      "Easily share your Bookmarks and collections with others. Create a shareable link that you can send at the click of a button.",
-  },
-];
+import { gsap, useGSAP, SplitText } from "@/lib/gsap";
+import { Features } from "@/constants";
 
 export default function FeaturesSection() {
   useGSAP(() => {
-    featuresAnimation();
+    // Heading
+    const titlesplit = new SplitText("#Features h2", { type: "chars" });
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#Features",
+          start: "top center",
+        },
+        defaults: {
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+      })
+      .from(titlesplit.chars, { yPercent: 40, stagger: 0.04 })
+      .from("#Features .subtitle", { yPercent: 25 }, "-=0.5")
+
+    // Features
+    gsap.utils.toArray<HTMLElement>(".feature-item").forEach((item, i) => {
+      const image = item.querySelector(".feature-image");
+      const text = item.querySelectorAll(".feature-text > *");
+      const deco = item.querySelector(".feature-deco");
+
+      const featureTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: "top center",
+        },
+        defaults: {
+          ease: "power3.out",
+          opacity: 0,
+        },
+      });
+
+      featureTl
+        .from(image, { x: i % 2 === 0 ? -100 : 100, duration: 1 })
+        .from(text, { yPercent: 40, duration: 1, stagger: 0.2 }, "-=0.8")
+        .from(
+          deco,
+          {
+            scaleX: 0,
+            transformOrigin: i % 2 === 0 ? "left center" : "right center",
+            duration: 0.5,
+          },
+          "-=0.8"
+        );
+    });
   }, []);
 
   return (
@@ -46,12 +71,22 @@ export default function FeaturesSection() {
     >
       {/* Heading */}
       <Container maxWidth="xl">
-        {/* Heading */}
-        <SectionHeading
-          title="Features"
-          subtitle="Our Aim is To Make it Quick And Easy For You To Access Your Favourite websites. 
-          Your Bookmarks sync between your Devices So You Can Access Them On The Go."
-        />
+        <Stack spacing={1.5} className="text-center mb-12 max-w-3xl mx-auto">
+          <Typography variant="h2" lineHeight={1.2}>
+            Features
+          </Typography>
+
+          <Typography
+            variant="subtitle1"
+            className="subtitle"
+            component="p"
+            color="textSecondary"
+            fontWeight={500}
+          >
+            Our Aim is To Make it Quick And Easy For You To Access Your Favourite websites. Your
+            Bookmarks sync between your Devices So You Can Access Them On The Go.
+          </Typography>
+        </Stack>
       </Container>
 
       {/* Features */}

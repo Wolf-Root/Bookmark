@@ -1,7 +1,7 @@
 "use client";
 
 // React
-import { ReactElement, ReactNode, useCallback, useRef, useState } from "react";
+import { ReactElement, useCallback, useRef, useState } from "react";
 
 // MUI Core Components
 import Slide from "@mui/material/Slide";
@@ -22,13 +22,8 @@ import { useColorScheme } from "@mui/material/styles";
 
 // Material UI Icon
 import MenuIcon from "@mui/icons-material/Menu";
-import HomeIcon from "@mui/icons-material/Home";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import ChecklistOutlinedIcon from "@mui/icons-material/ChecklistOutlined";
-import CloudDownloadOutlinedIcon from "@mui/icons-material/CloudDownloadOutlined";
-import HelpIcon from "@mui/icons-material/Help";
-import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
 
 // My Components
 import MobileDrawer from "./MobileDrawer";
@@ -36,6 +31,7 @@ import Button from "@mui/material/Button";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import { useScrollSpy } from "@/hook/useScrollSpy";
+import { NavLinks } from "@/constants";
 
 interface Props {
   children?: ReactElement;
@@ -53,33 +49,11 @@ function HideOnScroll(props: Props) {
 }
 
 const drawerWidth = 240;
-const navItems: { name: string; icon: ReactNode }[] = [
-  {
-    name: "Home",
-    icon: <HomeIcon />,
-  },
-  {
-    name: "Features",
-    icon: <ChecklistOutlinedIcon />,
-  },
-  {
-    name: "Download",
-    icon: <CloudDownloadOutlinedIcon />,
-  },
-  {
-    name: "FAQs",
-    icon: <HelpIcon />,
-  },
-  {
-    name: "Contact",
-    icon: <ContactMailOutlinedIcon />,
-  },
-];
 
 export default function Header(props: Props) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const activeId = useScrollSpy(navItems.map((item) => item.name));
+  const activeId = useScrollSpy(NavLinks.map((item) => item.name));
 
   const { mode, systemMode, setMode } = useColorScheme();
   const headerRef = useRef<HTMLDivElement>(null);
@@ -165,7 +139,7 @@ export default function Header(props: Props) {
               {/* DeskTop Navigation */}
               <Box component="nav" aria-label="Main Navigation" className="hidden md:flex">
                 <List sx={{ display: "flex" }}>
-                  {navItems.map(({ name }, index) => (
+                  {NavLinks.map(({ name }, index) => (
                     <ListItem key={index}>
                       <MuiLink
                         // component={Link}
@@ -238,7 +212,7 @@ export default function Header(props: Props) {
 
       {/* Mobile Drawer Navigation  */}
       <Box component="nav" aria-label="Main Navigation">
-        <MobileDrawer {...{ drawerWidth, handleDrawerToggle, mobileOpen, navItems }} />
+        <MobileDrawer {...{ drawerWidth, handleDrawerToggle, mobileOpen, NavLinks }} />
       </Box>
 
       {/* Add space below header */}
